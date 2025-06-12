@@ -1,0 +1,12 @@
+input CategoriaInput {
+  _id: ID!
+  nombre: String!
+  descripcion: String!
+}
+
+type Categoria {
+  _id: ID!
+  nombre: String
+  descripcion: String
+}
+

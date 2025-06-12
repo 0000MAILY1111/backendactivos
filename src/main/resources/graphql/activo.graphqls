@@ -1,0 +1,23 @@
+#import "categoria.graphqls"
+
+
+input ActivoInput {
+  _id: ID!
+  nombre: String!
+  descripcion: String!
+  fechaAdquisicion: String!
+  precio: String!
+  estado: String!
+  categoria: CategoriaInput!
+}
+
+type Activo {
+  _id: ID
+  nombre: String
+  descripcion: String
+  categoria: Categoria
+  fechaAdquisicion: String
+  precio: String
+  estado: String
+}
+

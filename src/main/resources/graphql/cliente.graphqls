@@ -1,0 +1,25 @@
+#import "pageinfo.graphqls"
+type Cliente {
+  clienteId: ID!
+  nombre: String
+  cedula: String
+  celular: String
+  fechaNacimiento: String
+  direccion: String
+}
+
+type ClientePage {
+    pageInfo: PageInfo!
+    clientes: [Cliente!]!
+}
+
+extend type Query {
+   getAllClientes(page: Int, size: Int): ClientePage!
+  findByClienteId(clienteId: ID!): Cliente
+  existsClienteId(clienteId:ID!):Boolean
+}
+
+extend type Mutation {
+  createCliente(nombre: String, cedula: String, celular: String!, fechaNacimiento: String, direccion: String): Cliente
+  deleteCliente(clienteId: ID!): Boolean 
+}

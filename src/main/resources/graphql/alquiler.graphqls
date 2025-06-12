@@ -1,0 +1,31 @@
+#import "cliente.graphqls"
+#import "activo.graphqls"
+#import "pageinfo.graphqls"
+
+
+type Alquiler {
+  alquilerId: ID!
+  cliente: Cliente!
+  activo: Activo!
+  fechaInicio: String!
+  fechaFin: String
+  monto: String!
+  descripcion: String
+}
+
+type AlquilerPage {
+    pageInfo: PageInfo!
+    alquileres: [Alquiler!]!
+}
+
+
+extend type Query {
+ getAllAlquileres(page: Int, size: Int): AlquilerPage!
+ getAlquilers:[Alquiler]!
+}
+
+extend type Mutation {
+  createAlquiler(clienteId: ID!, activoInput: ActivoInput!, fechaInicio: String!, fechaFin: String, monto: String!, descripcion: String): Alquiler!
+  deleteAlquiler(alquilerId: ID!): Boolean
+ 
+}
